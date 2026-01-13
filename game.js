@@ -17,7 +17,7 @@ const code_flag  = '&#9873;';
 //Variables 
 let height = 15;
 let width = 15;
-let mine_num = 15; 
+let mine_num = 10; 
 let flags = 0;
 let mineMap = [];
 let game_over = true;
@@ -29,7 +29,7 @@ display_start.addEventListener('click', createView);
 
 function createView() {
     board.innerHTML = '';
-    display_mines.innerHTML = mine_num;
+    display_mines.innerHTML = 10;
     display_start.innerHTML = code_smile;
     flags = 0;
     display_flags.innerHTML = flags;
