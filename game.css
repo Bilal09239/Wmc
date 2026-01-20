@@ -1,0 +1,72 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(182, 218, 240);
+}
+
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+#head-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+
+.display {
+    background-color: black;
+    color: red;
+    padding: 5px 10px;
+    font-size: 60px;
+}
+
+.start-btn {
+    border: 5px solid rgb(104, 104, 104);
+    padding: 5px;
+    font-size: 60px;
+}
+
+.start-btn:hover {
+    background-color: rgb(104, 104, 104);
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    text-align: center;
+}
+
+.field {
+    height: 50px;
+    width: 50px;
+    font-size: 24px;   
+    line-height: 60px;
+    background-color: rgb(152, 152, 152);
+    border: 1px solid rgb(104, 104, 104);
+    border-radius: 2px;
+}
+
+
+.field.available:hover {
+    background-color: rgb(88, 88, 88);
+    cursor: pointer;
+}
+
+.field.flag {
+    background-color: rgb(152, 152, 152);
+    cursor: default !important;
+}
+
+.field:not(.available) {
+    background-color: rgb(186, 186, 186);
+}
+
+h1 {
+    font-size: 50px;
+}
