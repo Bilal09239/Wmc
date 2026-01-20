@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"> <!--damit alle buchstaben und symoble korrekt dargestellt werden -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--dami sich der webseite auf alle gräten richtig anzeigt-->
     <title>Weather App</title>
     <link rel="stylesheet" href="weather.css">
 </head>
@@ -46,14 +46,17 @@
 
 
     <script>
-
+        // Wetterdaten von OpenWeatherMap wird mit hilfe api hier benutzt 
         const apiKey = "ca67b99ff71775a8052c8d5cb89c97c3";
+        // URl wird dann benutzt später muss noch was hinzugefügt werden 
         const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-
+        
+        // verbindung zwischen HTML und JS
         const searchBox = document.querySelector(".search input");
         const searchBtn = document.querySelector(".search button");
         const weatherIcon = document.querySelector(".weather-icon");
 
+        // Daten werdne aus dem internet geholt und wärend das warten soll JS nicht abstürzen (async und awair)
         async function checkWeather(city) {
             const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
@@ -63,9 +66,10 @@
             }
 
             else {
+                // Daten werden in JSON umgewandelt 
                 var data = await response.json();
 
-
+                // Wetterdaten werden in HTML geschrieben 
                 document.querySelector(".city").innerHTML = data.name;
                 document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
                 document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
@@ -96,6 +100,7 @@
                     weatherIcon.src = "weather-img/snow.png"
                 } 
 
+
                 document.querySelector(".weather").style.display = "block";
                 document.querySelector(".error").style.display = "none";
 
@@ -104,6 +109,7 @@
         }
 
         searchBtn.addEventListener("click", ()=>{
+            // Input (Staadt) wird übergeben
             checkWeather(searchBox.value);
         })
 

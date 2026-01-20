@@ -2,15 +2,23 @@
 <html lang="en">
 <head>
     <title>My Portfolio</title>
+    <!--"rel" beschreibt die verbindung und "href" gibt an wo die css datei ist-->
     <link rel="stylesheet" href="protfolio.css">
-
+    <!-- Erlaubt die Nutzung von Icons.
+     crossorigin="anonymous" erlaubt uns vom externen Server zu laden ohne Login-Daten zu senden -->
     <script src="https://kit.fontawesome.com/aa3ef5026d.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-
-<div id="header">
+    <!-- Mit dem id="header" können wir in CSS festlegen, wie dieser Abschnitt aussieht 
+     Das ist das Erste, was man sieht, wenn man die Seite öffnet. -->
+    <div id="header">
     <div class="container">
+        <!-- 
+            nav = Navigationskontainer
+            Kennzeichnet Menübereiche für Browser und Screenreader
+            (mit Flexbox in Css lassen wir unsere logo auf der linke seite und menue auf der rechte seite)
+        -->
         <nav>
             <img src="images/logo.png" class="logo">
             <ul id="sidemenu">
@@ -19,6 +27,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <!--Schliess Icon für Mobile-Menue fa-solid= für still, fa-solid fa-xmark für icon-->
                 <i class="fa-solid fa-xmark close-icon" onclick="closemenu()"></i>
             </ul>
             <i class="fa-solid fa-bars menu-icon" onclick="openmenu()"></i>
@@ -43,10 +52,11 @@
                 <h1 class="sub-title">About Me</h1>
                 <p> My name is Bilal Anwar, I am 21 years old, and I am originally from the Autonomous Kurdistan region (Iraq),
                     specifically from Sulaymaniyah. I have been living in Styria, Austria, since June 2016. 
-                    I am currently studying Software Engineering at the Higher Technical Federal Institute Graz-Gösting and will complete my studies by the end of 2027.
+                    I am currently studying Software Engineering at the Higher Technical Federal Institute Graz-Goesting and will complete my studies by the end of 2027.
                 </p>
 
                     <div class="tab-titles">
+                        <!--Skills ist standert immer aktiv wenn jemand auf diese 3 sachen drückt wird die javer opentab() funktion ausgeführt-->
                         <p class="tab-links active-link" onclick="opentab('skills', event)">Skills</p>
                         <p class="tab-links" onclick="opentab('experience', event)">Experience</p>
                         <p class="tab-links" onclick="opentab('education', event)">Education</p>
@@ -55,6 +65,7 @@
 
                     <div class="tab-contents active-tab" id="skills">
                         <ul>
+                            <!--mit <span> ändern wir in css bestimten breeich -->
                             <li><span>Network Systems & Cyber Security</span><br>Network configuration, security concepts</li>
                             <li><span>Databases & Information Systems</span><br>SQL, database design, data management</li>
                             <li><span>System Planning & Project Development</span><br>System analysis, project planning, implementation</li>
@@ -65,7 +76,7 @@
                     
                     <div class="tab-contents" id="experience">
                         <ul>
-                            <li><span>9999 - 9999</span><br>Will be added soon ✅</li>
+                            <li><span>9999 - 9999</span><br>Will be added soon ...</li>
                         </ul>
                     </div>
 
@@ -88,21 +99,21 @@
         <h1 class="sub-title">My Services</h1>
         <div class="services-list">
             <div>
-                <i class="fa-solid fa-code"></i>
+                <i class="fa-solid fa-code"></i> <!--icon-->
                 <h2>Programming</h2>
                 <p>I write programs in Python and C++ for different applications and projects. I enjoy solving problems and creating efficient solutions.</p>
                 <a href="#">Learn more</a>
             </div>
 
             <div>
-                <i class="fa-solid fa-crop"></i>
+                <i class="fa-solid fa-crop"></i><!--icon-->
                 <h2>Web Development</h2>
                 <p>I design and develop modern and responsive websites. I focus on creating user-friendly interfaces and seamless functionality.</p>
                 <a href="#">Learn more</a>
             </div>
 
             <div>
-                <i class="fa-solid fa-database"></i>
+                <i class="fa-solid fa-database"></i><!--icon-->
                 <h2>Databases</h2>
                 <p>I create and manage databases, design schemas, and write SQL queries to store and organize data efficiently.</p>
                 <a href="#">Learn more</a>
@@ -160,6 +171,8 @@
             </div>
 
             <div class="contact-right">
+                <!--POST: Daten werden versteckt im Hintergrund gesendet (nicht in der Adresszeile sichtbar)
+                    GET: Daten stehen direkt in der URL (z.B. website.de?name=Max&email=test@test.com)-->
                 <form action="send.php" method="POST">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
@@ -185,26 +198,31 @@
     var tabcontents = document.getElementsByClassName("tab-contents");
 
     function opentab(tabname, event) {
-  for (let tablink of tablinks) {
-    tablink.classList.remove("active-link");
-  }
-  for (let tabcontent of tabcontents) {
-    tabcontent.classList.remove("active-tab");
-  }
-  event.currentTarget.classList.add("active-link");
-  document.getElementById(tabname).classList.add("active-tab");
-  }
+    // Deaktiviere alle Tab-Buttons      
+    for (let tablink of tablinks) {
+        tablink.classList.remove("active-link");
+    }
+    // Deaktiviere alle Tab-Buttons
+    for (let tabcontent of tabcontents) {
+        tabcontent.classList.remove("active-tab");
+    }
+    // aktiviert geklickten Button
+    event.currentTarget.classList.add("active-link");
+    // zeigt zugehörigen Tab-Inhalt
+    document.getElementById(tabname).classList.add("active-tab");
+    }
 </script>
 
 <script>
+    // Mobile Menue
     var sidemenu = document.getElementById("sidemenu");
 
     function openmenu(){
-        sidemenu.style.right = "0";
+        sidemenu.style.right = "0"; // blendet menu ein 
     }
 
     function closemenu(){
-        sidemenu.style.right = "-200px";
+        sidemenu.style.right = "-200px"; // blendet menu aus
     }
 </script> 
 
