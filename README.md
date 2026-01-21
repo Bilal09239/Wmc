@@ -32,8 +32,8 @@ Wmc/
 ├── game.js            # Game logic
 │
 ├── send.php           # PHP contact form handler
-└── README.md          # Project documentation ```
-
+└── README.md          # Project documentation 
+```
 
 ---
 
@@ -69,7 +69,8 @@ Wmc/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Bilal09239/Wmc.git ```
+   git clone https://github.com/Bilal09239/Wmc.git 
+   ```
 2. Open any .html file in your browser
 
 3. For PHP features, use a local server
